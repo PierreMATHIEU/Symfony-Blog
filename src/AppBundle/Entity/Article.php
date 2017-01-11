@@ -2,7 +2,9 @@
 
 namespace AppBundle\Entity;
 
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
 	* @ORM\Entity
@@ -19,6 +21,7 @@ class Article
 
 	/**
 	* @ORM\Column(type="string", length=255)
+    *@Assert\NotBlank()
 	*/
 	private $title;
 
@@ -29,6 +32,7 @@ class Article
 
 	/**
 	* @ORM\Column(type="string", length=255)
+    *@Assert\NotBlank()
 	*/
 	private $author;
 
@@ -45,7 +49,7 @@ class Article
 
     public function __construct()
     {
-        $this->createAt = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**

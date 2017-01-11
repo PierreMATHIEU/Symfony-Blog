@@ -18,9 +18,27 @@
         </div>
     </header>
     {# {{form(articleForm)}} #}
+
+
+    {% if 'article_add' == app.request.get('_route') %}
+            {% set submitButton = 'Add' %}
+            {% set title = 'Add a new article' %}
+        {% else %}
+            {% set submitButton = 'Update' %}
+            {% set title = 'Update the article"'~article.title~'"' %}
+     {% endif %}
+
+
+    <h1>
+        {% if 'article_add' == app.request.get('_route') %}
+            {{title}}
+        {% else %}
+            {{title}}
+        {% endif %}
+    </h1>
     <article class="container">
     <div class="row">
-        {{form_start(articleForm)}}
+        {{form_start(articleForm, {'attr': {'novalidate': 'novalidate'}})}}
             
 
             
@@ -32,7 +50,7 @@
             {{form_row(articleForm.author)}}
             {{form_row(articleForm.content)}}
 
-            <input class="btn btn-success pull-right" type="submit" value="Add"></input>
+            <input class="btn btn-success pull-right" type="submit" value="{{submitButton}}"></input>
         {{form_end(articleForm)}}
     </div>
     </article
