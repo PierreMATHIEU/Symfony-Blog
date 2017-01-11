@@ -40,8 +40,11 @@ class ArticleController extends Controller
      */
     public function addAction(){
         $article = new Article();
+        
+        //Passe la class ArticleType et l'objet article au formulaire
         $form = $this->createForm(ArticleType::class, $article);
 
+        //Permet d'afficher le formulaire
         return $this ->render('article/add.html.twig',['articleForm' => $form->createView()]);
     }
 }

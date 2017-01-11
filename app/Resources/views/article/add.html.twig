@@ -17,6 +17,24 @@
             </div>
         </div>
     </header>
-    {{form(articleForm)}}
+    {# {{form(articleForm)}} #}
+    <article class="container">
+    <div class="row">
+        {{form_start(articleForm)}}
+            
+
+            
+            {{form_label(articleForm.title)}}
+            {{form_widget(articleForm.title)}}
+            {{form_errors(articleForm.title)}}
+
+            {{form_row(articleForm.headerImage)}}
+            {{form_row(articleForm.author)}}
+            {{form_row(articleForm.content)}}
+
+            <input class="btn btn-success pull-right" type="submit" value="Add"></input>
+        {{form_end(articleForm)}}
+    </div>
+    </article
 {% endblock%}
     
