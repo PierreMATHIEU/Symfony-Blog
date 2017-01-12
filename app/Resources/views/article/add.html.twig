@@ -40,7 +40,9 @@
     <div class="row">
         {{form_start(articleForm, {'attr': {'novalidate': 'novalidate'}})}}
             
-
+{% if 'article_update' == app.request.get('_route') %}
+                <img src="{{ oldArticleImage }}" width="100" />
+            {% endif %}
             
             {{form_label(articleForm.title)}}
             {{form_widget(articleForm.title)}}
